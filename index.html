@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Movie Database</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	 <!-- Bootstrap CSS -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar sticky-top navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand h1" href="index.html">MovieDatabse</a>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav">
+     
+     <li class="nav-item">
+       <a href="#" class="nav-link" onclick="showAllMovies()">ALL MOVIES</a>
+       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#newmovie" onclick="initMovieDatabase(); showAddNewMovieForm();">ADD NEW MOVIE</a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#" onclick="getTopRatedMovie()">TOP RATED MOVIES</a>
+	    </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="getWorstRatedMovie()">WORST RATED MOVIES</a>
+      </li>
+      <li class="nav-item dropdown">
+    	<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="chosedYear">CHOSE YEAR</a>
+		<div class="dropdown-menu" id="moviesByYear">
+		  <a class="dropdown-item" href="#">2016</a>
+		  <a class="dropdown-item" href="#">2015</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#">2014</a>
+		  <a class="dropdown-item" href="#">2013</a>
+		</div>
+  	  </li>
+      <li class="nav-item dropdown">
+    	<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="chosedYear">CHOSE GENRE</a>
+		<div class="dropdown-menu" id="movieByGenre">
+		  <a class="dropdown-item" href="#">Action</a>
+		  <a class="dropdown-item" href="#">Adventure</a>
+		  <a class="dropdown-item" href="#">Animation</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#">Crime</a>
+		  <a class="dropdown-item" href="#">Comedy</a>
+		  <a class="dropdown-item" href="#">Cartoons</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#">Drama</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#">Fantasy</a>
+		  <a class="dropdown-item" href="#">Family</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#">History</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#">Triller</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#">Sci-Fi</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#">War</a>
+		</div>
+  	  </li>
+    </ul>
+  </div>
+</nav>
+
+<section class="jumbotron jumbotron-fluid text-center">
+      <!--<div class="container">-->
+        <h1 class="jumbotron-heading">Movie Database</h1>
+        <p>World best and free movie database.</p>
+       <!--</div>-->
+ </section>
+<div id = "movieContainer" class="container">
+ 	<div id="firstRow" class="row">
+ 		<!-------------RENDERING STAGE--------------------->
+ 	</div>
+</div>
+<!-------------MODAL--------------------->
+<div class="modal fade bd-example-modal-lg" id="movieDetailsModal" data-focus="true" data-backdrop="false" data-backdrop="false">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Movie details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick = "cleanLocalStorage()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="row">
+		  <div class="col-sm-4">
+			<div class="card">
+   				 <img id="movieImage" class="card-img img-fluid" src="" alt="Movie image">
+  			</div>
+		  </div>
+		  <div class="col-sm-8">
+			<div class="card">
+			  <div class="card-block">
+				<h3 class="card-title"></h3>
+				<div class="genrecontainer">
+					<p id="duration" class="card-text score"></p>
+					<small class="vote"><a class="btn" data-toggle="collapse" href="#collapseGenre" aria-expanded="false" aria-controls="collapseGenre">
+					Genres
+					</a></small>
+				</div>
+				<!-----------------GENRES MODULE-------------------->
+				<div id='collapseGenre' class='containerGenres collapse'>
+					
+					<label for="genres">Genres</label><br>
+					<input type="checkbox" name="uppdateGenres[]" value="Action"> Action<br>
+					<input type="checkbox" name="uppdateGenres[]" value="Adventure"> Adventure<br>
+					<input type="checkbox" name="uppdateGenres[]" value="Animation"> Animation<br>
+					<input type="checkbox" name="uppdateGenres[]" value="Fantasy"> Fantasy<br>
+					<input type="checkbox" name="uppdateGenres[]" value="Family"> Family<br>
+					<input type="checkbox" name="uppdateGenres[]" value="Crime"> Crime<br>
+					<input type="checkbox" name="uppdateGenres[]" value="Comedy"> Comedy<br>
+					<input type="checkbox" name="uppdateGenres[]" value="Cartoons"> Cartoons<br>
+					<input type="checkbox" name="uppdateGenres[]" value="Drama"> Drama<br>
+					<input type="checkbox" name="uppdateGenres[]" value="History"> History<br>
+					<input type="checkbox" name="uppdateGenres[]" value="Triller"> Triller<br>
+					<input type="checkbox" name="uppdateGenres[]" value="SF"> SF<br>
+					<input type="checkbox" name="uppdateGenres[]" value="War"> War<br>
+					<small class="vote text-muted"><a href="#" id="updateGenres" class="btn btn-secondary btn-sm " role="button" aria-disabled="true" onclick="genresModule.updateGenres()">Update genres</a></small>
+				</div>
+				<div class="votecontainer">
+					<p id="score" class="card-text score"></p><small class="vote"><a class="btn" data-toggle="collapse" href="#collapseRating" aria-expanded="false" aria-controls="collapseRating">
+					Rate this film
+					</a></small>
+  				
+				</div>
+				
+				<!------------------RATING MODULE------------------->
+				<div id='collapseRating' class='containerStarsRating collapse'>
+					<div class="stars card card-block">
+    
+						<input class="star star-10" id="star-10" type="radio" name="star"/>
+						<label class="star star-10" for="star-10" data-rating='10'></label>
+						<input class="star star-9" id="star-9" type="radio" name="star"/>
+						<label class="star star-9" for="star-9" data-rating='9'></label>
+						<input class="star star-8" id="star-8" type="radio" name="star"/>
+						<label class="star star-8" for="star-8" data-rating='8'></label>
+						<input class="star star-7" id="star-7" type="radio" name="star"/>
+						<label class="star star-7" for="star-7" data-rating='7'></label>
+						<input class="star star-6" id="star-6" type="radio" name="star"/>
+						<label class="star star-6" for="star-6" data-rating='6'></label>
+						<input class="star star-5" id="star-5" type="radio" name="star"/>
+						<label class="star star-5" for="star-5" data-rating='5'></label>
+						<input class="star star-4" id="star-4" type="radio" name="star"/>
+						<label class="star star-4" for="star-4" data-rating='4'></label>
+						<input class="star star-3" id="star-3" type="radio" name="star"/>
+						<label class="star star-3" for="star-3" data-rating='3'></label>
+						<input class="star star-2" id="star-2" type="radio" name="star"/>
+						<label class="star star-2" for="star-2" data-rating='2'></label>
+						<input class="star star-1" id="star-1" type="radio" name="star"/>
+						<label class="star star-1" for="star-1" data-rating='1'></label>
+    
+					</div>
+					<div class='containerScore'><label  id='starScore' class='starScore'></label></div>
+				</div>
+				<!-------------------------------------------------->
+				<p id="story" class="card-text"></p>
+				
+			  </div>
+			</div>
+		  </div>
+</div>
+      
+    </div>
+  </div>
+</div>
+</div>
+<!-------------FORM NEW MOVIE--------------------->
+<section id="newMovieForm" class="hide">
+	<h1 class="text-center p-3 anchor" id="newmovie">Add new movie here!</h1>
+<div class="form">
+<!--<form id="movieDatabase" name="movieDatabase" class="form">-->
+<ul>
+<li>
+    <label for="name">Titel</label>
+    <input type="text" name="titel" maxlength="100">
+    <span>Enter new titel here</span>
+   
+</li>
+<li>
+    <label for="year">Year</label>
+    <input type="text" name="year" maxlength="100">
+    <span>Enter a year</span>
+</li>
+<li>
+    <label for="runtime">Runtime</label>
+    <input type="text" name="runtime" maxlength="100">
+    <span>Enter a runtime</span>
+</li>
+<li>
+    <label for="ratings">Rating</label>
+    <input type="text" name="ratings" maxlength="100">
+    <span>Enter a directors</span>
+</li>
+<li>
+    <label for="genres">Genres</label><br>
+    <input type="checkbox" name="genres[]" value="Action"> Action<br>
+    <input type="checkbox" name="genres[]" value="Adventure"> Adventure<br>
+    <input type="checkbox" name="genres[]" value="Animation"> Animation<br>
+    <input type="checkbox" name="genres[]" value="Fantasy"> Fantasy<br>
+    <input type="checkbox" name="genres[]" value="Family"> Family<br>
+    <input type="checkbox" name="genres[]" value="Crime"> Crime<br>
+    <input type="checkbox" name="genres[]" value="Comedy"> Comedy<br>
+    <input type="checkbox" name="genres[]" value="Cartoons"> Cartoons<br>
+    <input type="checkbox" name="genres[]" value="Drama"> Drama<br>
+    <input type="checkbox" name="genres[]" value="History"> History<br>
+    <input type="checkbox" name="genres[]" value="Triller"> Triller<br>
+    <input type="checkbox" name="genres[]" value="SF"> SF<br>
+    <input type="checkbox" name="genres[]" value="War"> War<br>
+    
+    <span>Enter a genres</span>
+</li>
+<li>
+    <label for="actors">Actors</label>
+    <textarea name="actors"></textarea>
+    <span>Enter a actors</span>
+</li>
+<li>
+    <label for="languages">Languages</label>
+    <textarea name="languages"></textarea>
+    <span>Enter a languages</span>
+</li>
+<li>
+    <label for="country">Country</label>
+    <textarea name="country"></textarea>
+    <span>Enter a countrys</span>
+</li>
+<li>
+    <label for="overview">Overview</label>
+    <input type="text" name="overview" maxlength="250">
+    <span>Enter a short overview</span>
+</li>
+<li>
+    <label for="poster">Poster</label>
+    <input type="text" name="poster" maxlength="250">
+    <span>Enter a link to poster</span>
+</li>
+<li>
+    <input type="submit" value="Save" onclick="collectUsersInput()" >
+</li>
+</ul>
+<!--</form>-->
+</div>
+</section>
+   
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/main.js"></script>
+	
+	<script>
+	   $(document).ready(function(){
+    	$('[data-toggle="popover"]').popover(); 
+	   });
+	</script>
+</body>
+</html>

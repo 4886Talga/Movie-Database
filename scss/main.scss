@@ -1,0 +1,311 @@
+.border{
+	border: 1px solid black;
+}
+.hide{
+	display: none; 
+}
+#storyline {
+  /* BOTH of the following are required for text-overflow */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.overflow-ellipsis {
+  //text-overflow: ellipsis;
+  max-height: 3.6em;
+}
+.row{
+	top: 100px;
+}
+.anchor {
+ padding-top: 60px;
+  width: 100%;
+}
+/*--------------NAVBAR-----------------------------*/
+nav.navbar{
+	background-color: #fff;
+    background-image:none;
+	height: 87px;
+}
+/*--------------GALLERY---------------------------*/
+.movie-holder {
+	
+	//height: 550px;
+	//width: 400px;
+}
+.image-holder {
+	
+	max-height: 50%;
+}
+.img-movie {
+	display: block;
+    text-align: center;
+    width: auto;
+	height: auto;
+	margin: auto;
+	
+}
+.content-holder{
+	
+	//max-height: 30%;
+}
+.content-holder h1 {
+	font-size: 14px;
+    text-transform: uppercase;
+	margin-bottom: 5px;
+	//text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    font-weight: 900;
+	text-align: center;
+}
+
+.content-holder h2 {
+	font-family: "Merriweather", serif;
+	text-transform: none;
+    font-size: 1em;
+	font-style: italic;
+	font-weight: 600;
+	line-height: 120%;
+	//text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+    margin-top: 0;
+	text-align: center;
+}
+.footer h5 {
+	font-size: 12px;
+	color: #da291c;
+	text-transform: none;   
+	font-weight: 600;
+	bottom: 0px;
+	text-align: center;
+}
+.content-holder p {
+  margin-top:0;
+  margin-bottom: 10px;
+  font-family: 'Roboto Slab', Georgia, serif;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.25em;
+}
+
+#storyline {
+  /* BOTH of the following are required for text-overflow */
+  //white-space: nowrap;
+  overflow: hidden; 
+  text-overflow-multiline:ellipsis;
+}
+
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+  max-height: 3.6em; }
+.footer {
+ 
+  bottom:0;
+  width:100%;
+  height:85px;
+  text-align: center;
+}
+
+/*--------------JUMBOTRON-------------------------*/
+.jumbotron
+{
+background-color:#da291c!important;
+}
+.jumbotron-heading{
+	color: white;
+}
+.jumbotron p {
+	color: white;
+}
+/*--------------VOTE-------------------------*/
+.votecontainer, .genrecontainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+.score{
+	
+	padding-bottom: 10px;
+	margin: auto 0 auto 0;
+}
+.vote{
+	
+	padding-left: 10px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	margin: auto 0 auto 0;
+}
+/*------------GENRES MODULE-----------------------------*/
+.containerGenres{
+	width: 300px;
+}
+/*-------------RATING MODULE----------------------------*/
+.containerStarsRating{
+	width: 300px;
+}
+.containerScore{
+	display: inline-block;
+	width: 20px;
+}
+div.stars {
+  width: 250px;
+  height: 50px;
+  display: inline-block;
+}
+
+input.star { display: none; }
+
+label.star {
+  float: right;
+  padding: 0 2px;
+  font-size: 18px;
+  color: #444;
+  //transition: all .2s;
+}
+.starScore{
+  float: right;
+  font-size: 18px;
+  color: #222;
+  font-weight: bold;
+}
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+
+input.star-10:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked ~ label.star:before { color: #F62; }
+
+label.star:hover { 
+	content: '\f005';
+  	color: #FD4;
+	transform: rotate(-15deg) scale(1.3);
+}
+
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+/*----------------------------------------------*/
+
+/*------------- FORM -----------------------*/
+.form{
+    max-width:400px;
+    margin:50px auto;
+    background:#fff;
+    border-radius:2px;
+    padding:20px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+.form h1{
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0px 0px 20px 0px;
+    color: #5C5C5C;
+    font-size:x-large;
+}
+.form ul{
+    list-style:none;
+    padding:0;
+    margin:0;   
+}
+.form li{
+    display: block;
+    padding: 9px;
+    border:1px solid #DDDDDD;
+    margin-bottom: 20px;
+    border-radius: 3px;
+}
+.form li:last-child{
+    border:none;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.form li > label{
+    display: block;
+    float: left;
+    margin-top: -22px;
+    background: #FFFFFF;
+    height: 24px;
+    padding: 2px 5px 2px 5px;
+    color: #B9B9B9;
+    font-size: 14px;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.form input[type="text"],
+.form input[type="date"],
+.form input[type="datetime"],
+.form input[type="email"],
+.form input[type="number"],
+.form input[type="search"],
+.form input[type="time"],
+.form input[type="url"],
+.form input[type="password"],
+.form textarea,
+.form select 
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    height: 25px;
+    line-height: 25px;
+    font-size: 16px;
+    padding: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+	color: #585757;
+}
+.form input[type="checkbox"]{
+	font-size: 10px;
+    padding: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+	color: #585757;
+}
+.form input[type="text"]:focus,
+.form input[type="date"]:focus,
+.form input[type="datetime"]:focus,
+.form input[type="email"]:focus,
+.form input[type="number"]:focus,
+.form input[type="search"]:focus,
+.form input[type="time"]:focus,
+.form input[type="url"]:focus,
+.form input[type="password"]:focus,
+.form textarea:focus,
+.form select:focus 
+{
+}
+.form li > span{
+    background: #F3F3F3;
+    display: block;
+    padding: 3px;
+    margin: 0 -9px -9px -9px;
+    text-align: center;
+    color: #C0C0C0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+.form textarea{
+    resize:none;
+}
+.form input[type="submit"],
+.form input[type="button"]{
+    background: #2471FF;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 3px solid #5994FF;
+    border-radius: 3px;
+    color: #D2E2FF;
+}
+.form input[type="submit"]:hover,
+.form input[type="button"]:hover{
+    background: #6B9FFF;
+    color:#fff;
+}
