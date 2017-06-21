@@ -5,9 +5,9 @@
 
 ##### Schoolproject in JavaScript2,  [Design Patterns Assignment - Movie Database](https://github.com/FEND16/javascript2/blob/master/assignment_design_pattern.md)
 
- ##### My site is published at:<https://4886talga.github.io/MovieDatabase/MovieDatabase/index.html>
+ ##### My site is published at:<https://4886talga.github.io/Movie-Database/index.html>
  
- ##### GitHub Repo: <https://github.com/4886Talga/MovieDatabase>
+ ##### GitHub Repo: <https://github.com/4886Talga/Movie-Database>
  
  
  **App description**
